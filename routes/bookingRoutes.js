@@ -10,7 +10,7 @@ const {
 
 const router = express.Router();
 
-router.get("/bookings", getBookings);
+router.get("/", getBookings);
 router.get("/bookings/add", showAddForm);
 router.post("/bookings/add", addBooking);
 
