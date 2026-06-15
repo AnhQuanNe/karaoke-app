@@ -1,0 +1,60 @@
+<style>
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+h1 {
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+
+<div class="container">
+<h1>Add Booking</h1>
+
+<form method="POST">
+    Name:
+    <input name="customerName" required>
+
+    Room:
+    <select name="roomNumber">
+        <% rooms.forEach(r => { %>
+            <option value="<%= r.roomNumber %>">
+                <%= r.roomNumber %>
+            </option>
+        <% }) %>
+    </select>
+
+    Start:
+    <input type="datetime-local" name="startTime" required>
+
+    End:
+    <input type="datetime-local" name="endTime" required>
+
+    <button type="submit">Save</button>
+</form>
+</div>

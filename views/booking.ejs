@@ -1,0 +1,87 @@
+<style>
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.add-btn {
+    background: #28a745;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+</style>
+
+<h1>Booking List</h1>
+
+<a href="/bookings/add" class="add-btn">+ Add Booking</a>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Room</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total</th>
+    <th>Action</th>
+</tr>
+
+<% bookings.forEach(b => { %>
+<tr>
+    <td><%= b.customerName %></td>
+    <td><%= b.roomNumber %></td>
+
+    <td><%= new Date(b.startTime).toLocaleString('vi-VN') %></td>
+    <td><%= new Date(b.endTime).toLocaleString('vi-VN') %></td>
+
+    <td>$<%= b.totalAmount %></td>
+
+    <td>
+        <a class="edit-btn" href="/bookings/update/<%= b._id %>">Edit</a>
+        <a class="delete-btn" href="/bookings/delete/<%= b._id %>">Delete</a>
+    </td>
+</tr>
+<% }) %>
+</table>

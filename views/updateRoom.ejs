@@ -1,0 +1,53 @@
+<style>
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+
+<div class="container">
+<h1>Update Booking</h1>
+
+<form method="POST">
+    Name:
+    <input name="customerName" value="<%= booking.customerName %>">
+
+    Start:
+    <input type="datetime-local" name="startTime"
+    value="<%= booking.startTime.toISOString().slice(0,16) %>">
+
+    End:
+    <input type="datetime-local" name="endTime"
+    value="<%= booking.endTime.toISOString().slice(0,16) %>">
+
+    <button type="submit">Update</button>
+</form>
+</div>
