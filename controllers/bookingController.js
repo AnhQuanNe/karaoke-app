@@ -36,7 +36,7 @@ exports.addBooking = async (req, res) => {
         totalAmount
     });
 
-    res.redirect("/bookings");
+    res.redirect("/");
 };
 
 exports.showUpdateForm = async (req, res) => {
@@ -60,5 +60,5 @@ exports.updateBooking = async (req, res) => {
         totalAmount
     });
 
-    res.redirect("/bookings");
+    res.redirect("/");
 };
