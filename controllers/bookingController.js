@@ -8,7 +8,7 @@ exports.getBookings = async (req, res) => {
 
 exports.deleteBooking = async (req, res) => {
     await Booking.findByIdAndDelete(req.params.id);
-    res.redirect("/bookings");
+    res.redirect("/");
 };
 
 exports.showAddForm = async (req, res) => {
